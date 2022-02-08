@@ -27,7 +27,7 @@
                         <div class="col-md-3">
                             <div class="form-group">
                                 <label for="created_at">Repositories date</label>
-                                <input type="date" name="created" id="created_at" value="{{ \Carbon\Carbon::parse(request()->query('created'))->format('Y-m-d') }}" class="form-control">
+                                <input type="date" name="created" id="created_at" value="{{ request()->query('created') ? \Carbon\Carbon::parse(request()->query('created'))->format('Y-m-d') : '' }}" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-3">

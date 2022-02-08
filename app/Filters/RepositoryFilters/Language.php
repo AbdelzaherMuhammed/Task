@@ -10,6 +10,6 @@ class Language extends QueryFilter implements FilterContract
 
     public function handle($value, $defaultParameters): string
     {
-        return 'language:' . $value . '&' . $defaultParameters;
+        return '?q=language:' . $value . '&' . $defaultParameters;
     }
 }

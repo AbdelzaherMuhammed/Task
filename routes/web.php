@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\SimpleTaskController;
-use App\Http\Controllers\TaskController;
+use App\Http\Controllers\FirstSolution\TaskController;
+use App\Http\Controllers\SecondSolution\SimpleTaskController;
 use Illuminate\Support\Facades\Route;
 
 /*

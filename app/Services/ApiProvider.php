@@ -5,21 +5,29 @@ namespace App\Services;
 class ApiProvider
 {
 
-    public function providedUrl($request)
+    protected $defaultParmeters = 'sort=stars&order=desc';
+
+    public function providedUrl($request) :string
     {
-        $url = 'https://api.github.com/search/repositories?q=sort=stars&order=desc';
+
+        $url = 'https://api.github.com/search/repositories?q=' . $this->defaultParmeters;
 
         if ($request) {
-            $dateFilter = $request['created'] != null ? 'created:>' . $request['created'] : '';
-            $languageFilter = $request['language'] != null ? 'language:' . $request['language'] : '';
-            $perPageFilter = $request['per_page'] != null ? '&per_page=' . $request['per_page'] : '';
+            $dateFilter = isset($request['created']) != null ? 'created:>' . $request['created'] : '';
+            $languageFilter = isset($request['language']) != null ? 'language:' . $request['language'] : '';
+            $perPageFilter = isset($request['per_page']) != null ? '&per_page=' . $request['per_page'] : '';
 
-            if ($request['created'] != null && $request['language'] != null) {
+            if (isset($request['created']) && isset($request['language'])) {
                 $languageFilter = '+' . $languageFilter;
             }
+            if (isset($request['created']) || isset($request['language'])) {
+                $this->defaultParmeters = '&' . $this->defaultParmeters;
+            }
 
-            return 'https://api.github.com/search/repositories?q=' . $dateFilter . $languageFilter . '&sort=stars&order=desc' . $perPageFilter;
+
+            $url = 'https://api.github.com/search/repositories?q=' . $dateFilter . $languageFilter . $this->defaultParmeters . $perPageFilter;
         }
+
         return $url;
     }
 

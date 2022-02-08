@@ -2,7 +2,6 @@
 
 namespace App\Filters;
 
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 
 class FilterBuilder
