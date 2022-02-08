@@ -21,7 +21,7 @@ class SimpleTaskController extends Controller
     {
         $url = $this->apiProvider->providedUrl($request->all());
         $repositories = Http::get($url)['items'];
-        return view('task-simple', ['repositories' => $repositories]);
+        return view('second-solution.task', ['repositories' => $repositories]);
     }
 
 

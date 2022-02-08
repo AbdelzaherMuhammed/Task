@@ -11,13 +11,13 @@ This repository contains a Lavavel project to implement task assignment.
 - while the other is by doing multiple filters at one time  
 ## Usage/Examples
 
--The link to the first way of the task is here:
+- The link to the first way of the task is here:
 
 ```javascript
     /task
 ```
 
--The link to the second way of the task is here:
+- The link to the second way of the task is here:
 
 ```javascript
     /simple-task
@@ -31,7 +31,7 @@ This repository contains a Lavavel project to implement task assignment.
 - The API I used was GitHub repositories endpoint
 
 ```http
-  GET /github.com/search/repositoriesq=created:>2022-02-08+language=c#&sort=stars&order=desc
+  GET /api.github.com/search/repositories
 ```
 
 | Parameter | Type     | Description                |
@@ -42,4 +42,30 @@ This repository contains a Lavavel project to implement task assignment.
 #### Get repositories
 
 - In addition to the sort of stars.
+
+
+## Documentation
+
+- The first solution will be in the controllers folder called the First solution, this solution implements the logic in the App\Filters directory.
+
+- The second solution will be in the controllers folder called the Second solution, it is more simple than the first, it implements the logic in the App\Services directory.
+
+
+## Unit test
+
+#### I've implemented 2 unit tests for both solutions with all use cases.
+
+- The first is called FirstSolutionTest.php it tests all scenarios of the first solution.
+
+ - The Second is called SecondSolutionTest.php it tests all scenarios of the second solution.
+
+
+
+## Running Tests
+
+To run tests, run the following command
+
+```bash
+  php artisan test
+```
 
